@@ -71,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_cart.cart',
             ],
         },
     },
@@ -143,9 +144,10 @@ CART_SESSION_ID = 'cart_id'
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "jake@wishcompany.net"
-EMAIL_HOST_PASSWORD = "password"
-EMAIL_USE_TLS = True
+IAMPORT_KEY = 'key'
+IAMPORT_SECRET = 'secret_key'
+
+'''
+from django.contrib.contenttypes.models import ContentType
+ContentType.objects.all().delete()
+'''
