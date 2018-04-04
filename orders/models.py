@@ -66,7 +66,7 @@ class OrderTransactionManager(models.Manager):
         key = hashlib.sha1((short_hash + time_hash + base).encode('utf-8')).hexdigest()[:10]
 
         merchant_order_id = "%s"%(key)
-
+        print(merchant_order_id)
         validation_prepare(merchant_order_id,amount)
 
         new_trans = self.model(
@@ -78,8 +78,11 @@ class OrderTransactionManager(models.Manager):
         if success is not None:
             new_trans.success = success
             new_trans.transaction_status = transaction_status
+        try:
+            new_trans.save()
+        except Exception as e:
+            print("save error",e)
 
-        new_trans.save(using=self._db)
         return new_trans.merchant_order_id
 
     def validation_trans(self,merchant_order_id):

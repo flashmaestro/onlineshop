@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Order,OrderItem
+from .models import Order,OrderItem,OrderTransaction
 # Register your models here.
 from django.utils.safestring import mark_safe
 import csv
@@ -41,10 +41,13 @@ def order_pdf(obj):
 order_pdf.allow_tags = True
 order_pdf.short_description = 'Gen. PDF'
 
+class OrderTransactionInline(admin.TabularInline):
+    model = OrderTransaction
+
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['id','first_name','last_name','email','address','postal_code','city','paid','created','updated',order_detail,order_pdf]
     list_filter = ['paid','created','updated']
-    inlines = [OrderItemInline]
+    inlines = [OrderItemInline, OrderTransactionInline]
     actions = [export_to_csv]
 
 admin.site.register(Order,OrderAdmin)
