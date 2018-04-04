@@ -144,8 +144,6 @@ CART_SESSION_ID = 'cart_id'
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
-IAMPORT_KEY = '6656791780160842'
-IAMPORT_SECRET = 'g4dWk9QWNpAxkGg8HqOLgg1nnkdGymoOrBLMKCIy1j5lZmuHMis2ztpWODDm01brCXdnzWVAf1WfnqWa'
 
 '''
 from django.contrib.contenttypes.models import ContentType
