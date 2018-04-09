@@ -83,13 +83,14 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
+SQLITE_DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
+DATABASE_OPTIONS = {'charset': 'utf8'}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -144,6 +145,8 @@ CART_SESSION_ID = 'cart_id'
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
+IAMPORT_KEY = ''
+IAMPORT_SECRET = ''
 
 '''
 from django.contrib.contenttypes.models import ContentType
